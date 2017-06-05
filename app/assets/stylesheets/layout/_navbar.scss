@@ -20,8 +20,12 @@
 }
 
 /* Navbar logo */
-.navbar-wagon-brand img {
-  width: 50px;
+.navbar-wagon-brand {
+  font-family: 'Alegreya Sans', sans-serif;
+  font-size: 25px;
+}
+.navbar-wagon-brand:hover {
+  text-decoration: none;
 }
 
 /* Navbar right section (with form, links, button) */
