@@ -5,3 +5,4 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Gym.create([name: "Fitness Etterbeek", address: "Rue des francs, 79, Etterbeek", description: "Super salle de sport pas loin des institutions européennes", opening_hours: "Du lundi au vendredi de 8h à 20h", equipments: "Machines dernier cri", services: "Wi-fi, piscine, sauna"])

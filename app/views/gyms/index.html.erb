@@ -1,0 +1,7 @@
+<h1>Voici toutes nos salles partenaires</h1>
+
+<% @gyms.each do |gym| %>
+<p> Nom: <%= gym.name %></p>
+<p> Adresse <%= gym.address %></p>
+<p> <%= link_to "Consultez la page de la salle",  gym_path(gym) %> </p>
+<% end %>
