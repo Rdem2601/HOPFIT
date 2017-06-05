@@ -8,6 +8,7 @@
   padding: 0px 30px;
   align-items: center;
   justify-content: space-between;
+  background-color: #FFDD00;
 }
 
 /* Optional class to fix the navbar on top */
@@ -22,8 +23,12 @@
 /* Navbar logo */
 .navbar-wagon-brand {
   font-family: 'Alegreya Sans', sans-serif;
-  font-size: 25px;
+  font-size: 35px;
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 1px 5px 0 rgba(0,0,0,0.7);
 }
+
 .navbar-wagon-brand:hover {
   text-decoration: none;
 }
