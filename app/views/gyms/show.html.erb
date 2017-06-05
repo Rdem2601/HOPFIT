@@ -1,0 +1,16 @@
+<h1> <%= @gym.name %></h1>
+<p> <%= @gym.address %></p>
+<p> <%= @gym.description %></p>
+<p> <%= @gym.opening_hours %></p>
+<p> <%= @gym.services %></p>
+<p> <%= @gym.equipments %></p>
+<p> <%= cl_image_tag @gym.photo %></p>
+
+<% if @gym.photo.url.nil? %>
+<h3>Upload your picture</h3>
+<%= simple_form_for(@gym) do |f| %>
+<%= f.input :photo %>
+<%= f.input :photo_cache, as: :hidden %>
+<%= f.button :submit, "Add picture" %>
+<% end %>
+<% end %>
