@@ -10,7 +10,16 @@
 <h3>Upload your picture</h3>
 <%= simple_form_for(@gym) do |f| %>
 <%= f.input :photo %>
-<%= f.input :photo_cache, as: :hidden %>
+<%= f.input :photo_cache, as: :hidden %>user
 <%= f.button :submit, "Add picture" %>
 <% end %>
 <% end %>
+
+<h2>Notre offre</h2>
+<p>Une entrée: <%= @gym.price %> euros !!</p>
+<% if user_signed_in?  %>
+<%= link_to "Acheter une entrée",  gym_bookings_path(@gym), method: :post %>
+<% else %>
+<%= link_to "Connectez-vous pour acheter une entrée", user_session_path %>
+<% end %>
+
