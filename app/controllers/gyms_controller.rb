@@ -1,5 +1,5 @@
 class GymsController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_gym, only: [:show, :update]
 
   def index
@@ -26,5 +26,4 @@ class GymsController < ApplicationController
   def find_gym
     @gym = Gym.find(params[:id])
   end
-
 end
