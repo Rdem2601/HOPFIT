@@ -10,10 +10,10 @@
   <h1>Mes entrées</h1>
   <% @bookings.each do |booking| %>
     <p> Vous avez réservé une entrée chez <%= booking.gym.name %> le <%= booking.date.day %>/<%= booking.date.month %>. Elle est valide jusqu'au <%= booking.expiry_date.day %>/<%= booking.expiry_date.month %>.
-      <% if booking.expiry_date > Date.new %>
-        <span> Elle est encore valide. </span>
+      <% if booking.validity == true && booking.expiry_date > Date.new %>
+        <span class="valid"> Elle est encore valide. </span>
       <% else %>
-        <span> Elle n'est plus valide.</span>
+        <span class="invalid"> Elle n'est plus valide.</span>
       <% end %>
     </p>
   <% end %>

@@ -18,7 +18,19 @@
 <h2>Notre offre</h2>
 <p>Une entrée: <%= @gym.price %> euros !!</p>
 <% if user_signed_in?  %>
-<%= link_to "Acheter une entrée",  gym_bookings_path(@gym), method: :post %>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Acheter une entrée chez <%= @gym.name %></button>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <h3 class="text-center">Récapitulatif de votre commande</h3>
+      <p>Vous avez choisi 1 entrée chez <%= @gym.name %></p>
+      <p>Elle sera valide, jusqu'au <%= 30.days.from_now.day %>/<%= 30.days.from_now.month %></p>
+      <p>Coût total: <span class="prix"> <%= @gym.price %> € </span></p>
+      <%= link_to "Acheter une entrée",  gym_bookings_path(@gym), method: :post %>
+    </div>
+  </div>
+</div>
 <% else %>
 <%= link_to "Connectez-vous pour acheter une entrée", user_session_path %>
 <% end %>
