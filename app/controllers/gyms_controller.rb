@@ -1,7 +1,6 @@
 class GymsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_gym, only: [:show, :update]
-
   def index
     @gyms = Gym.all
     @hash = Gmaps4rails.build_markers(@gyms) do |gym, marker|

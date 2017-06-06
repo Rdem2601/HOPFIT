@@ -1,0 +1,7 @@
+<h1>Vous êtes le manager de <%= current_user.gym.name %>. Voici les réservations effectuées dans votre salle</h1>
+
+<ul>
+<% @bookings.each do |booking| %>
+<li><%= booking.user.first_name %> <%= booking.user.last_name %> a effectué une réservation le <%= booking.date.day %>/<%= booking.date.month %>/<%= booking.date.year%>. Elle est valide jusqu'au <%= booking.expiry_date.day %>/<%= booking.expiry_date.month %>/<%= booking.expiry_date.year%>. </li>
+<% end %>
+</ul>

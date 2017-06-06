@@ -6,6 +6,8 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
 
   has_many :bookings, dependent: :destroy
+  has_one :gym
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true
