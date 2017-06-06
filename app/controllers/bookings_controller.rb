@@ -1,5 +1,9 @@
 class BookingsController < ApplicationController
 
+  def index
+    @bookings = Booking.where(gym_id: current_user.gym.id)
+  end
+
   def show
     @booking = Booking.find(params[:user_id])
   end
