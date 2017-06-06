@@ -8,6 +8,19 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:user_id])
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    @gym = Gym.find(params[:gym_id])
+    @booking.validity = false
+    if @booking.save
+      redirect_to gym_bookings_path(current_user.gym.id)
+      flash[:notice] = "L'entrée a bien été validée."
+    else
+      redirect_to gym_bookings_path(current_user.gym.id)
+      flash[:danger] = "L'opération n'a pas pu être effectuée."
+    end
+  end
+
   def create
     @gym = Gym.find(params[:gym_id])
     @booking = Booking.new(
@@ -18,10 +31,10 @@ class BookingsController < ApplicationController
     )
     if @booking.save
       redirect_to gym_path(@gym)
-      flash[:notice] = "Vous avez bien réservé"
+      flash[:notice] = "Vous avez bien réservé."
     else
       render :new
-      flash[:danger] = "Une erreur est survenue"
+      flash[:danger] = "Une erreur est survenue."
     end
   end
 
