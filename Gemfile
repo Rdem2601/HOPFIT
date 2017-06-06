@@ -17,6 +17,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
+gem 'omniauth-faceboo
 gem "geocoder"
 gem "coffee-rails"
 gem "gmaps4rails"
