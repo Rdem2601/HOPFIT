@@ -3,8 +3,8 @@ class CreateBookings < ActiveRecord::Migration[5.1]
     create_table :bookings do |t|
       t.references :user
       t.references :gym
-      t.string :date
-      t.string :expiry_date
+      t.datetime :date
+      t.datetime :expiry_date
 
       t.timestamps
     end

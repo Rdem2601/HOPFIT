@@ -9,6 +9,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: #FFDD00;
+
 }
 
 /* Optional class to fix the navbar on top */
@@ -26,10 +27,11 @@
   font-size: 35px;
   font-weight: 900;
   color: white;
-  text-shadow: 0 1px 5px 0 rgba(0,0,0,0.7);
+  text-shadow:  1px 2px 1px rgba(0,0,0,0.5);
 }
 
 .navbar-wagon-brand:hover {
+  color: white;
   text-decoration: none;
 }
 
