@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Mon profil</h1>
+  <ul>
+    <li> Nom: <%= @user.first_name %></li>
+    <li> Prénom: <%= @user.last_name %></li>
+    <li> Email: <%= @user.email %></li>
+  </ul>
+
+  <%= link_to "Changez vos données", edit_user_registration_path %>
+  <h1>Mes entrées</h1>
+  <% @bookings.each do |booking| %>
+    <p> Vous avez réservé une entrée chez <%= booking.gym.name %> le <%= booking.date.day %>/<%= booking.date.month %>. Elle est valide jusqu'au <%= booking.expiry_date.day %>/<%= booking.expiry_date.month %>.
+      <% if booking.expiry_date > Date.new %>
+        <span> Elle est encore valide. </span>
+      <% else %>
+        <span> Elle n'est plus valide.</span>
+      <% end %>
+    </p>
+  <% end %>
+</div>
+
+
