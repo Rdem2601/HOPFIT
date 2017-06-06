@@ -30,6 +30,7 @@ class BookingsController < ApplicationController
       amount_paid: @gym.price
     )
     if @booking.save
+       BookingMailer.creation_confirmation(@booking).deliver_now
       redirect_to gym_path(@gym)
       flash[:notice] = "Vous avez bien réservé."
     else
