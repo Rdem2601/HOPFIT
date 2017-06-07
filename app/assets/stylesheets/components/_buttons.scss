@@ -69,20 +69,17 @@ make it thinner, then set it to again wrap around the entire parent element.
   padding: 5px 20px;
   border-radius: 5px;
   line-height: 40px;
-  background-color: #FFDD00;
-  border: 1px solid white;
+  background-color: #FF4F4F;
   font-family: 'Alegreya Sans', sans-serif;
   font-size: 25px;
-  font-weight: 700;
+  font-weight: 200;
   color: white;
-  text-shadow:  1px 2px 1px rgba(0,0,0,0.6);
   transition: .3s ease;
   box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4);
 }
 .banner-wagon-button:hover {
   text-decoration: none;
   color: rgba(255, 255, 255, 1);
-  border: 2px solid white;
   padding: 7px 20px;
 }
 
