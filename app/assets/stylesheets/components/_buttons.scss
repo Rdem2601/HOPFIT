@@ -49,8 +49,8 @@
 #text a {
   color: white;
   text-decoration: none;
-  font-weight: 100;
-  font-size: 1.1em;
+  font-weight: 200;
+  font-size: 1.2em;
 }
 /*
     Changing the shape on hover. I change the color of the stroke,
@@ -63,3 +63,26 @@ make it thinner, then set it to again wrap around the entire parent element.
   stroke-dashoffset: 0;
   stroke: #FFDD00;
 }
+
+.banner-wagon-button {
+  margin-left: 10px;
+  padding: 5px 20px;
+  border-radius: 5px;
+  line-height: 40px;
+  background-color: #FFDD00;
+  border: 1px solid white;
+  font-family: 'Alegreya Sans', sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  color: white;
+  text-shadow:  1px 2px 1px rgba(0,0,0,0.6);
+  transition: .3s ease;
+  box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4);
+}
+.banner-wagon-button:hover {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 1);
+  border: 2px solid white;
+  padding: 7px 20px;
+}
+

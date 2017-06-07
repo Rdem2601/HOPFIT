@@ -3,16 +3,24 @@
   <div class="banner-center">
     <h1 class='slideRight' > Le sport pas cher et sans engagement ! </h1>
     <p class='slideRight'> Trouvez votre salle en quelques clics </p>
-    <%= link_to "Rechercher", gyms_path,
-    class: "btn banner-wagon-button" %>
 
-    <div class="svg-wrapper">
-      <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
-        <rect id="shape" height="40" width="150" />
-        <div id="text">
-          <a href="/index"><span class="spot"></span>Rechercher</a>
+    <div class="container">
+      <div class="row">
+        <div class="hidden-md hidden-lg">
+          <%= link_to "Trouvez votre salle", gyms_path, class: "banner-wagon-button" %>
         </div>
-      </svg>
+        <div class="hidden-xs hidden-sm">
+          <div class="svg-wrapper">
+            <svg height="40" width="150"
+              xmlns="http://www.w3.org/2000/svg">
+              <rect id="shape" height="40" width="150" />
+              <div id="text">
+                <a href="/gyms"><span class="spot"></span>Trouvez votre salle</a>
+              </div>
+            </svg>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
