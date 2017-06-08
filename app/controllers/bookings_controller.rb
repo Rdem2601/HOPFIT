@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.find(params[:user_id])
+    @booking = Booking.where(state: 'paid').find(params[:id])
   end
 
   def update
@@ -27,16 +27,14 @@ class BookingsController < ApplicationController
       user: current_user,
       gym: Gym.find(params[:gym_id]),
       date: DateTime.now.to_date,
-      amount_paid: @gym.price
+      amount: @gym.price,
+      state: "pending",
     )
     if @booking.save
-       BookingMailer.creation_confirmation(@booking).deliver_now
-      redirect_to gym_path(@gym)
-      flash[:notice] = "Vous avez bien réservé."
+      redirect_to new_gym_booking_payment_path(@gym, @booking)
     else
       render :new
       flash[:danger] = "Une erreur est survenue."
     end
   end
-
 end

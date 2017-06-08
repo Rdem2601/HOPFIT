@@ -1,6 +1,7 @@
 class Gym < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   geocoded_by :address
+  monetize :price_cents
 
   after_validation :geocode, if: :address_changed?
 

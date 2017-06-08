@@ -10,6 +10,10 @@ class GymsController < ApplicationController
   end
 
   def show
+    @hash = Gmaps4rails.build_markers(@gym) do |gym, marker|
+      marker.lat gym.latitude
+      marker.lng gym.longitude
+    end
   end
 
   def update

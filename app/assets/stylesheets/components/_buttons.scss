@@ -66,3 +66,16 @@
   color: rgba(255, 255, 255, 1);
   padding: 7px 20px;
 }
+
+.btn-show {
+  background-color: #ff4f4f;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+}
+
+.btn-show:hover {
+  background-color: #fc4646;
+}

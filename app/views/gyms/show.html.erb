@@ -13,43 +13,80 @@
     <h2>Notre offre</h2>
     <br>
     <div class="entry">1 entrée:</div>
-    <div class="price"> <%= @gym.price %> € </div>
+    <div class="price"> <%= humanized_money(@gym.price)%> € </div>
     <br>
 
   </div>
-  <button id="mobilecta" type="button" class="btn btn-mobile-fixed hidden-lg" data-toggle="modal" data-target=".bs-example-modal-sm">Acheter une entrée</button>
+  <button id="mobilecta" type="button" class="btn-show btn-mobile-fixed hidden-lg" data-toggle="modal" data-target=".bs-example-modal-sm">Acheter une entrée</button>
 
-  <div class="details">
+  <div class="details hidden-xs hidden-sm hidden-md">
+    <h1>Les détails de la salle</h1>
+    <div class="details-title"> Description: <span class="description text-center"> <%= @gym.description %> </span></div>
+    <div class="details-title"> Services: <span class="services text-center"> <%= @gym.services %> </span></div>
+    <div class="details-title"> Equipements: <span class="equipments text-center"> <%= @gym.equipments %> </span></div>
+    <div class="details-title"> Photo: <%= cl_image_tag @gym.photo, height: 150, width: 300, class: 'photo-show' %></div>
+    <div class="details-title"> Horaires: <span class="opening_hours text-center"> <%= @gym.opening_hours %> </span></div>
+    <div class="details-title" style="margin-bottom: 30px"><div class=details-title-address> Adresse: <span class="address"> <%= @gym.address %> </span></div>
+    <div id="map" style="width: 90%; height: 200px;"></div></div>
+  </div>
+
+  <div class="details-mobile hidden-lg">
     <h1>Les détails de la salle</h1>
     <div class="details-title"> Description: <span class="description text-center"> <%= @gym.description %> </span></div>
     <div class="details-title"> Services: <span class="services text-center"> <%= @gym.services %> </span></div>
     <div class="details-title"> Equipements: <span class="equipments text-center"> <%= @gym.equipments %> </span></div>
     <div class="details-title"> Horaires: <span class="opening_hours text-center"> <%= @gym.opening_hours %> </span></div>
-    <div class="address hidden-md hidden-lg" style="margin-bottom: 30px"> Adresse: <%= @gym.address %> </div>
+    <div class="details-title" style="margin-bottom: 30px"> Adresse: <span class="address"> <%= @gym.address %> </span> </div>
   </div>
-
   <div class="offre hidden-xs hidden-sm hidden-md">
-    <h2>Notre offre</h2>
+    <h2>Notre offre:</h2>
     <br>
-    <div class="entry">1 entrée:</div>
-    <div class="price"> <%= @gym.price %> € </div>
+    <div class="entry">1 entrée</div>
+    <div class="price"> <%= humanized_money(@gym.price)%> € </div>
+    <p>25% de réduction<br>par rapport au prix en salle</p>
     <br>
-    <button type="button" class="btn" data-toggle="modal" data-target=".bs-example-modal-sm">Acheter une entrée</button>
+    <button type="button" class="btn-show" data-toggle="modal" data-target=".bs-example-modal-sm">Acheter une entrée</button>
   </div>
 </div>
-<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+
+
+
+
+<div id="pop-window" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
       <h3 class="text-center">Récapitulatif de votre commande</h3>
-      <p>Vous avez choisi 1 entrée chez <%= @gym.name %></p>
+      <p class="modal-content">Vous avez choisi 1 entrée chez <%= @gym.name %></p>
       <p>Elle sera valide, jusqu'au <%= 30.days.from_now.day %>/<%= 30.days.from_now.month %></p>
-      <p>Coût total: <span class="prix"> <%= @gym.price %> € </span></p>
+      <p> <i> Vous aurez accès à toutes les infrastructures et cours proposés par la salle lors de votre passage. </i> </p>
+      <p>Coût total: <span class="prix"> <%= humanized_money(@gym.price)%> € </span></p>
       <% if user_signed_in?  %>
-        <%= link_to "Acheter une entrée",  gym_bookings_path(@gym), method: :post %>
+        <%= form_tag gym_bookings_path(@gym) do %>
+          <%= hidden_field_tag 'gym_id', @gym.id %>
+          <%= submit_tag 'Procéder vers le paiement', class: 'btn-show' %>
+        <% end %>
       <% else %>
-        <%= link_to "Connectez-vous pour acheter une entrée", user_session_path %>
+        <%= link_to "Connectez-vous pour acheter une entrée", user_session_path, class: 'btn-show' %>
       <% end %>
     </div>
   </div>
 </div>
+
+    <% content_for(:after_js) do %>
+      <%= javascript_tag do %>
+        $(document).ready(function() {
+          var handler = Gmaps.build('Google');
+          handler.buildMap({ provider: {scrollwheel: false}, internal: { id: 'map' } }, function() {
+            markers = handler.addMarkers(<%= raw @hash.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            if (markers.length == 0) {
+              handler.getMap().setZoom(2);
+            } else if (markers.length == 1) {
+              handler.getMap().setZoom(14);
+            }
+          });
+        });
+      <% end %>
+    <% end %>
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170606140704) do
+ActiveRecord::Schema.define(version: 20170608102221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,8 +22,11 @@ ActiveRecord::Schema.define(version: 20170606140704) do
     t.datetime "expiry_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "amount_paid"
     t.boolean "validity", default: true
+    t.string "state"
+    t.integer "amount_cents", default: 0, null: false
+    t.json "payment"
+    t.string "gym_sku"
     t.index ["gym_id"], name: "index_bookings_on_gym_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -38,10 +41,12 @@ ActiveRecord::Schema.define(version: 20170606140704) do
     t.string "services"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "price"
     t.float "latitude"
     t.float "longitude"
     t.bigint "user_id"
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "EUR", null: false
+    t.string "sku"
     t.index ["user_id"], name: "index_gyms_on_user_id"
   end
 

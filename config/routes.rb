@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :gyms do
-    resources :bookings
+    resources :bookings do
+      resources :payments, only: [:new, :create]
+    end
   end
 
   resources :users

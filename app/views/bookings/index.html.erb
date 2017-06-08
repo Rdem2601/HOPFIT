@@ -3,8 +3,8 @@
 <ul>
 <% @bookings.each do |booking| %>
 <li><%= booking.user.first_name %> <%= booking.user.last_name %> a effectué une réservation le <%= booking.date.day %>/<%= booking.date.month %>/<%= booking.date.year%>. Elle est valide jusqu'au <%= booking.expiry_date.day %>/<%= booking.expiry_date.month %>/<%= booking.expiry_date.year%>. </li>
-  <% if booking.validity == true %>
-    <span class="valid">  <%= link_to "Validez cette entrée", gym_booking_path(current_user.gym.id, booking.id), method: :patch %> </span>
+  <% if booking.validity == true && booking.state == "paid" %>
+    <span class="valid">  <%= link_to "Marquer cette entrée comme utilisée", gym_booking_path(current_user.gym.id, booking.id), method: :patch %> </span>
   <% else %>
     <span class="invalid">Cette entrée n'est plus valide.</span>
   <% end %>
