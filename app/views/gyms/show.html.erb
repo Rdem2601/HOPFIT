@@ -1,25 +1,42 @@
-<h1> <%= @gym.name %></h1>
-<p> <%= @gym.address %></p>
-<p> <%= @gym.description %></p>
-<p> <%= @gym.opening_hours %></p>
-<p> <%= @gym.services %></p>
-<p> <%= @gym.equipments %></p>
-<p> <%= cl_image_tag @gym.photo %></p>
 
-<% if @gym.photo.url.nil? %>
-<h3>Upload your picture</h3>
-<%= simple_form_for(@gym) do |f| %>
-<%= f.input :photo %>
-<%= f.input :photo_cache, as: :hidden %>user
-<%= f.button :submit, "Add picture" %>
-<% end %>
-<% end %>
 
-<h2>Notre offre</h2>
-<p>Une entrée: <%= @gym.price %> euros !!</p>
-<% if user_signed_in?  %>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Acheter une entrée chez <%= @gym.name %></button>
+<div class="gym-banner" style= 'background-image: url("<%= @gym.photo.url %>")'>
+  <div class="gym-name"><%= @gym.name %></div>
+</div>
 
+
+
+
+<div class="gym-wrapper">
+
+  <div class="offre-mobile hidden-lg">
+    <h2>Notre offre</h2>
+    <br>
+    <div class="entry">1 entrée:</div>
+    <div class="price"> <%= @gym.price %> € </div>
+    <br>
+
+  </div>
+  <button id="mobilecta" type="button" class="btn btn-mobile-fixed hidden-lg" data-toggle="modal" data-target=".bs-example-modal-sm">Acheter une entrée</button>
+
+  <div class="details">
+    <h1>Les détails de la salle</h1>
+    <div class="details-title"> Description: <span class="description text-center"> <%= @gym.description %> </span></div>
+    <div class="details-title"> Services: <span class="services text-center"> <%= @gym.services %> </span></div>
+    <div class="details-title"> Equipements: <span class="equipments text-center"> <%= @gym.equipments %> </span></div>
+    <div class="details-title"> Horaires: <span class="opening_hours text-center"> <%= @gym.opening_hours %> </span></div>
+    <div class="address hidden-md hidden-lg" style="margin-bottom: 30px"> Adresse: <%= @gym.address %> </div>
+  </div>
+
+  <div class="offre hidden-xs hidden-sm hidden-md">
+    <h2>Notre offre</h2>
+    <br>
+    <div class="entry">1 entrée:</div>
+    <div class="price"> <%= @gym.price %> € </div>
+    <br>
+    <button type="button" class="btn" data-toggle="modal" data-target=".bs-example-modal-sm">Acheter une entrée</button>
+  </div>
+</div>
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
@@ -27,11 +44,12 @@
       <p>Vous avez choisi 1 entrée chez <%= @gym.name %></p>
       <p>Elle sera valide, jusqu'au <%= 30.days.from_now.day %>/<%= 30.days.from_now.month %></p>
       <p>Coût total: <span class="prix"> <%= @gym.price %> € </span></p>
-      <%= link_to "Acheter une entrée",  gym_bookings_path(@gym), method: :post %>
+      <% if user_signed_in?  %>
+        <%= link_to "Acheter une entrée",  gym_bookings_path(@gym), method: :post %>
+      <% else %>
+        <%= link_to "Connectez-vous pour acheter une entrée", user_session_path %>
+      <% end %>
     </div>
   </div>
 </div>
-<% else %>
-<%= link_to "Connectez-vous pour acheter une entrée", user_session_path %>
-<% end %>
 
