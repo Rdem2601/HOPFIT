@@ -1,5 +1,7 @@
 class Booking < ApplicationRecord
 
+  monetize :amount_cents
+
   belongs_to :user
   belongs_to :gym
   before_create :calculate_expiry_date

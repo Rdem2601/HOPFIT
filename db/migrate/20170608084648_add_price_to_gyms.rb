@@ -1,5 +1,5 @@
 class AddPriceToGyms < ActiveRecord::Migration[5.1]
   def change
-    add_column :gyms, :price, :integer
+    add_monetize :gyms, :price
   end
 end
