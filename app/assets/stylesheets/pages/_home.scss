@@ -2,3 +2,51 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+ .home-wrap {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.home-description{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 15px;
+  margin-top: 5px;
+}
+
+.fancy-title{
+  font-size: 45px;
+  font-weight: bolder;
+  text-shadow: 1px 1px rgba(10, 10, 10, 0.7);
+  font-family: 'Alegreya Sans', sans-serif;
+  color:#000015;
+
+}
+
+.fancy-subtitle {
+  font-size: 30px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'Alegreya Sans', sans-serif;
+  color:#000015;
+  padding-bottom: 15px;
+}
+
+.home-card{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  font-family: 'Alegreya Sans', sans-serif;
+  color:#000015;
+  padding: 10px;
+}
+
+.home-card h3{
+  color:#000015;
+  font-family: 'Alegreya Sans', sans-serif;
+  font-size: 20px;
+  font-weight:300;
+}
