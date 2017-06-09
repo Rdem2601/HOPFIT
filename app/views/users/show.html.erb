@@ -1,24 +1,43 @@
-<div class="container">
-  <h1>Mon profil</h1>
+
+
+<div class="profile-banner" style= 'background-image: url("http://res.cloudinary.com/da6umoo9p/image/upload/v1496997616/salles-de-sport-4_z16rgh.jpg")'>
+  <div class="profile-banner-title">Mon profil</div>
+</div>
+
+<div class="table-wrapper">
+  <h1>Mes entrées</h1>
+  <table class="pass-table">
+    <tr>
+      <th>Nom de la salle</th>
+      <th class="hidden-xs">Acheté le</th>
+      <th >Expire le</th>
+      <th>Statut</th>
+    </tr>
+    <% @bookings.each do |booking| %>
+    <tr>
+      <td><%= booking.gym.name %></td>
+      <td class="hidden-xs"><%= booking.date.day %>/<%= booking.date.month %></td>
+      <td ><%= booking.expiry_date.day %>/<%= booking.expiry_date.month %></td>
+      <td>
+        <% if booking.validity == true && booking.expiry_date > Date.new && booking.state == "paid" %>
+        <span class="valid"> Elle est encore valide. </span>
+        <% elsif booking.validity == true && booking.expiry_date > Date.new || booking.state == "paid" %>
+        <span class="invalid"> Le paiment n'a pas été effectué. </span>
+        <% else %>
+        <span class="invalid"> Elle n'est plus valide.</span>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+<div class="table-wrapper">
+  <h1>Mes infos</h1>
   <ul>
     <li> Nom: <%= @user.first_name %></li>
     <li> Prénom: <%= @user.last_name %></li>
     <li> Email: <%= @user.email %></li>
   </ul>
-
   <%= link_to "Changez vos données", edit_user_registration_path %>
-  <h1>Mes entrées</h1>
-  <% @bookings.each do |booking| %>
-    <p> Vous avez réservé une entrée chez <%= booking.gym.name %> le <%= booking.date.day %>/<%= booking.date.month %>. Elle est valide jusqu'au <%= booking.expiry_date.day %>/<%= booking.expiry_date.month %>.
-      <% if booking.validity == true && booking.expiry_date > Date.new && booking.state == "paid" %>
-        <span class="valid"> Elle est encore valide. </span>
-      <% elsif booking.validity == true && booking.expiry_date > Date.new || booking.state == "paid" %>
-        <span class="invalid"> Le paiment n'a pas été effectué. </span>
-      <% else %>
-        <span class="invalid"> Elle n'est plus valide.</span>
-      <% end %>
-    </p>
-  <% end %>
 </div>
-
 
