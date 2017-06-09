@@ -1,0 +1,35 @@
+<div class="row">
+  <h1>Voici toutes nos salles partenaires</h1>
+  <% @gyms.each do |gym| %>
+  <div class ="col-xs-12 col-sm-6" >
+    <div class="card">
+      <div class="image-card"
+        style='background-image: url("<%= gym.photo.url %>")' >
+        <div class="overlay">
+          <div class="descript-card">
+            <div class="text">
+              <p><%= gym.address %></p>
+            </div>
+          </div>
+
+          <!-- <div class="card-category"> -->
+          <!-- <%#= cl_image_tag gym.photo, class: "avatar" %> -->
+          <!-- </div> -->
+          <div class="card-description">
+            <%= link_to gym_path(gym) do %>
+            <h2><%= gym.name %></h2>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <h3>
+        <span class="fa fa-credit-card-alt" aria-hidden="true"></span>
+        <%= gym.price %>
+        <i class="fa fa-eur" aria-hidden="true"></i>
+        / entrée
+      </h3>
+    </div>
+  </div>
+  <% end %>
+</div>
+
