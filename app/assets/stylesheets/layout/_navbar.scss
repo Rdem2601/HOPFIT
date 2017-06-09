@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: #FFDD00;
-
+  position: relative;
 }
 
 /* Optional class to fix the navbar on top */
@@ -141,4 +141,14 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+.catch-phrase {
+  font-family: 'Alegreya Sans', sans-serif;
+  padding-top: 5px;
+  font-size: 20px;
+  position: absolute;
+  left: 140px;
+  border-left: solid 1px;
+  padding-left: 20px;
 }
