@@ -11,7 +11,7 @@
         <%= f.input :last_name, required: true %>
         <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
         <%= f.input :password_confirmation, required: true %>
-          <%= f.button :submit, "Sign up", class: "btn btn-block" %>
+          <%= f.button :submit, "Sign up", class: "btn btn-block btn-red" %>
       <%= render 'devise/shared/links'%>
 
       </div>

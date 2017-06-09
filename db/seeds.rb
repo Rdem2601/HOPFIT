@@ -1,6 +1,4 @@
 
-Gym.destroy_all
-
 gym_1 = Gym.new(
   name: "Fitness Etterbeek",
   address: "Rue des francs, 79, Etterbeek",
@@ -39,4 +37,3 @@ gym_3 = Gym.new(
 )
 gym_3.remote_photo_url = "http://res.cloudinary.com/da6umoo9p/image/upload/v1496825435/gym-room-1178293_640_bblml9.jpg"
 gym_3.save
-

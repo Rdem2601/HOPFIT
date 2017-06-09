@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20170608102221) do
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "gym_id"
-    t.datetime "date"
-    t.datetime "expiry_date"
+    t.string "date"
+    t.string "expiry_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "validity", default: true

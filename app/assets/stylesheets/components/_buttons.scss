@@ -1,10 +1,19 @@
 .btn-blue{
   background-color: #3b5998 !important;
   margin-top: 8px;
+  color: white !important;
+  font-size: 1.3em;
+}
+
+.btn-red{
+  background-color: #FF4F4F !important;
+  color: white !important;
+  font-family: 'Alegreya Sans', sans-serif !important;
+  font-size: 1.3em;
 }
 
 .btn-blue:hover{
-  color: white;
+  color: white !important;
 }
 
 .banner-wagon-button {
