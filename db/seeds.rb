@@ -16,11 +16,13 @@ gym_2 = Gym.new(
   name: "Fitness Saint-Gilles",
   address: "Rue Gisbert Combaz, 31, Saint-Gilles",
   description: "Salle de sport historique historique du quartier, même patrons depuis 30 ans. Ambiance familiale.",
-  opening_hours: "Du lundi au jeudi de 8h à 20h, le vendredi de 10h à 22h.",
+  opening_hours: "Du lundi au jeudi de 8h à 20h, le
+
+  vendredi de 10h à 22h.",
   equipments: "Nouvelles machines et écrans plasma.",
   services: "Wi-fi",
   price: 7,
-  user_id: 4
+  user_id: 10
 )
 gym_2.remote_photo_url = "http://res.cloudinary.com/da6umoo9p/image/upload/v1496825330/dumbbell-pair-299533_640_q8a3sl.jpg"
 gym_2.save
@@ -33,7 +35,7 @@ gym_3 = Gym.new(
   equipments: "Nombreux cours avec prof certifié disponibles.",
   services: "Wi-fi, piscine, sauna, jardin, bar.",
   price: 10,
-  user_id: 5
+  user_id: 11
 )
 gym_3.remote_photo_url = "http://res.cloudinary.com/da6umoo9p/image/upload/v1496825435/gym-room-1178293_640_bblml9.jpg"
 gym_3.save
