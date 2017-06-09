@@ -56,7 +56,7 @@
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
       <h3 class="text-center">Récapitulatif de votre commande</h3>
-      <p class="modal-content">Vous avez choisi 1 entrée chez <%= @gym.name %></p>
+      <p>Vous avez choisi 1 entrée chez <%= @gym.name %></p>
       <p>Elle sera valide, jusqu'au <%= 30.days.from_now.day %>/<%= 30.days.from_now.month %></p>
       <p> <i> Vous aurez accès à toutes les infrastructures et cours proposés par la salle lors de votre passage. </i> </p>
       <p>Coût total: <span class="prix"> <%= humanized_money(@gym.price)%> € </span></p>

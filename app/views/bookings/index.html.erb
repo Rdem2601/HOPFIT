@@ -1,12 +1,31 @@
-<h1>Vous êtes le manager de <%= current_user.gym.name %>. Voici les réservations effectuées dans votre salle</h1>
+<div class="manager-banner" style= 'background-image: url("http://res.cloudinary.com/da6umoo9p/image/upload/v1497002585/pexels-photo-196655_a8fu8r.jpg")'>
+  <div class="manager-banner-title">Tableau de bord</div>
+</div>
 
-<ul>
-<% @bookings.each do |booking| %>
-<li><%= booking.user.first_name %> <%= booking.user.last_name %> a effectué une réservation le <%= booking.date.day %>/<%= booking.date.month %>/<%= booking.date.year%>. Elle est valide jusqu'au <%= booking.expiry_date.day %>/<%= booking.expiry_date.month %>/<%= booking.expiry_date.year%>. </li>
-  <% if booking.validity == true && booking.state == "paid" %>
-    <span class="valid">  <%= link_to "Marquer cette entrée comme utilisée", gym_booking_path(current_user.gym.id, booking.id), method: :patch %> </span>
-  <% else %>
-    <span class="invalid">Cette entrée n'est plus valide.</span>
-  <% end %>
-<% end %>
-</ul>
+
+<div class="table-manager-wrapper" >
+  <h1>Les réservations effectuées dans votre salle</h1>
+  <table class="pass-table">
+    <tr>
+      <th>Nom du client</th>
+      <th class="hidden-xs">Acheté le</th>
+      <th>Expire le</th>
+      <th>Statut</th>
+    </tr>
+    <% @bookings.each do |booking| %>
+      <% if booking.validity == true%>
+        <tr>
+          <td> <%= booking.user.first_name %> <%= booking.user.last_name %></td>
+          <td> <%= booking.date.day %>/<%= booking.date.month %>/<%= booking.date.year%></td>
+          <td> <%= booking.expiry_date.day %>/<%= booking.expiry_date.month %>/<%= booking.date.year%></td>
+          <td> <% if booking.validity == true && booking.state == "paid" %>
+            <span class="valid">  <%= link_to "Valider entrée", gym_booking_path(current_user.gym.id, booking.id), method: :patch, class: "btn btn-block btn-red" %> </span>
+            <% elsif booking.validity == true && booking.state == "pending" %>
+            <span class="invalid">Le paiement n'a pas été effectué </span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+</div>
