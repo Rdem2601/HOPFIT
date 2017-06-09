@@ -1,0 +1,41 @@
+.manager-banner {
+  color: #FDECDA;
+  text-align: center;
+  height: 50vh;
+  background-size: cover !important;
+  justify-content: center;
+  background-position: center;
+  background-image: linear-gradient(-225deg, rgba(52, 18, 0, 0.6) 0%, rgba(110, 55, 0, 0.4) 50%);
+  position: relative;
+}
+
+
+.manager-banner-title {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  color: white;
+  background-color: rgba(8, 76, 97, 0.3);
+  font-size: 50px;
+  margin-right: 40px;
+  padding: 35px;
+}
+
+.table-manager-wrapper {
+  margin-left: 15px;
+  padding: 40px;
+  margin-right: 60px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.table-manager-wrapper h1, li {
+  list-style: none;
+  padding: 5px 20px 10px 0px;
+}
+
+.table-manager-wrapper h1 {
+  padding-left: 40px;
+}
