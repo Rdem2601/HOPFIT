@@ -10,6 +10,14 @@
   color: white !important;
   font-family: 'Alegreya Sans', sans-serif !important;
   font-size: 20px !important;
+  text-decoration:none;
+  a {
+    color:white;
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
+  }
 }
 
 .btn-blue:hover{
