@@ -12,6 +12,7 @@ class GymsController < ApplicationController
   end
 
   def show
+    @photos = Photo.where(gym_id: @gym.id)
     @hash = Gmaps4rails.build_markers(@gym) do |gym, marker|
       marker.lat gym.latitude
       marker.lng gym.longitude

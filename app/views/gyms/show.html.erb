@@ -24,7 +24,16 @@
     <div class="details-title"> Description: <span class="description text-center"> <%= @gym.description %> </span></div>
     <div class="details-title"> Services: <span class="services text-center"> <%= @gym.services %> </span></div>
     <div class="details-title"> Equipements: <span class="equipments text-center"> <%= @gym.equipments %> </span></div>
-    <div class="details-title"> Photo: <%= cl_image_tag @gym.photo, height: 150, width: 300, class: 'photo-show' %></div>
+
+    <div class="details-title"> Photos:
+      <% @photos.each do |photo| %>
+        <%= link_to((image_path photo.url), class: "swipebox") do %>
+          <%= cl_image_tag photo.url, height: 150, width: 200, class: "photo-show", alt: "image" %>
+          <% end %>
+       <% end %>
+    </div>
+
+
     <div class="details-title"> Horaires: <span class="opening_hours text-center"> <%= @gym.opening_hours %> </span></div>
     <div class="details-title" style="margin-bottom: 30px"><div class=details-title-address> Adresse: <span class="address"> <%= @gym.address %> </span></div>
     <div id="map" style="width: 90%; height: 200px;"></div></div>
