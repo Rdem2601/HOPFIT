@@ -1,8 +1,8 @@
 
 #footer{
-  bottom: 0;
-  left: 0;
-  right: 0;
+  // bottom: 0;
+  // left: 0;
+  // right: 0;
   background: #f3f3f3;
     html {
       box-sizing: border-box;
@@ -47,6 +47,7 @@
   align-items: center;
   justify-content: left;
   padding: 1rem;
+  z-index:2;
 }
 
 .foot-link {
