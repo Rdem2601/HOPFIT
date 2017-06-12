@@ -1,5 +1,6 @@
 //= require jquery
 //= require jquery_ujs
+//= require components/swipebox.js
 //= require bootstrap-sprockets
 //= require underscore
 //= require gmaps/google
@@ -18,3 +19,9 @@
 //     };
 //   });
 // });
+
+;( function( $ ) {
+
+    $( '.swipebox' ).swipebox();
+
+} )( jQuery );
