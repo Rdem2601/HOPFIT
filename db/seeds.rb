@@ -1,3 +1,5 @@
+Gym.destroy_all
+
 
 gym_1 = Gym.new(
   name: "Fitness Etterbeek",
@@ -78,4 +80,5 @@ gym_6 = Gym.new(
 )
 gym_6.remote_photo_url = "http://res.cloudinary.com/da6umoo9p/image/upload/v1496825435/gym-room-1178293_640_bblml9.jpg"
 gym_6.save
+
 
