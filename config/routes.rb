@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :bookings do
       resources :payments, only: [:new, :create]
     end
+    get :search, on: :collection
   end
 
   resources :users
