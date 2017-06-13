@@ -43,7 +43,6 @@
 
 .details {
   flex: 5;
-  // overflow: auto;
   margin-left: 30px;
   max-width: 800px;
 }
@@ -66,11 +65,16 @@
   width: 50%;
   border: solid 1px;
   border-color: #f4f4f4;
-  padding: 0px 80px 50px 80px;
-  margin-bottom: 5px;
+  padding: 0px 80px 10px 80px;
   color: white;
   background-color: #423e3e;
   text-align: center;
+}
+
+.detail-offre {
+  border-bottom: solid 1px;
+  border-color: white;
+  padding-bottom: 20px;
 }
 
 .offre-fixed {
@@ -176,4 +180,15 @@
   border-color: #e0e0e0;
   width: 60%;
 }
+
+.address-map {
+  align-items: center;
+  padding: 20px 80px 50px 80px;
+}
+
+.address-map-elements {
+  text-align: center;
+  padding-top: 5px;
+}
+
 
