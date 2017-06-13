@@ -1,28 +1,25 @@
 <div class="row">
-  <h1>Voici toutes nos salles partenaires</h1>
   <% @gyms.each do |gym| %>
   <div class ="col-xs-12 col-sm-6" >
-    <%= link_to gym_path(gym) do %>
+    <%= link_to gym_path(gym), style:"text-decoration:none;" do %>
     <div class="card">
       <div class="image-card"
-      style='background-image: url("<%= gym.photo.url %>"),linear-gradient(-225deg, rgba(52, 18, 0, 0.6) 0%, rgba(110, 55, 0, 0.4) 50%)' >
-
-          <div class="text">
-            <p><%= gym.name %></p>
-          </div>
+        style='background-image: url("<%= gym.photo.url %>"),linear-gradient(-225deg, rgba(52, 18, 0, 0.6) 0%, rgba(110, 55, 0, 0.4) 50%)' >
+        <div class="text">
+          <p><%= gym.name %></p>
+        </div>
         <div class="card-description">
-          <h2><%= gym.address %></h2>
-
+          <h3> Une entrée
+            <div class="card-price">
+              <%= gym.price %>
+              <i class="fa fa-eur" aria-hidden="true"></i>
+            </div>
+          </h3>
+        </div>
       </div>
-      </div>
-      <h3>
-        <span class="fa fa-credit-card-alt" aria-hidden="true"></span>
-        <%= gym.price %>
-        <i class="fa fa-eur" aria-hidden="true"></i>
-      </h3>
+      <h2><%= gym.address %></h2>
     </div>
     <% end %>
   </div>
   <% end %>
 </div>
-
