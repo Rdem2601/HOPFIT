@@ -1,7 +1,7 @@
 class GymsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_gym, only: [:show, :update]
-  layout "gyms-app", only: [ :index ]
+  layout "gyms-app", only: [:search, :index ]
 
   def index
     @gyms = Gym.all

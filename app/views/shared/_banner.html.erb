@@ -1,20 +1,17 @@
 <div class="banner">
 
   <div class="banner-center">
-    <h1 class='slideRight' > Le sport pas cher et sans engagement ! </h1>
-    <p class='slideRight'> Trouvez votre salle en quelques clics </p>
-    <div class="small-iphone">Le sport sans frais en trois clics !</div>
-
-
-    <div class="container">
-      <div class="row">
-        <%= simple_form_for(:search, on: :collection, url: search_gyms_path, method: :get) do |f| %>
-        <%= f.input :query %>
-        <%= f.button :submit, "Search" %>
-        <% end %>
-        <%= link_to "Trouvez votre salle", gyms_path, class: "banner-wagon-button" %>
-      </div>
+    <p class='slideRight'> Trouvez votre salle en quelques clics !</p>
+    <div class="small-iphone">Le sport sans frais en 3 clics !
     </div>
+      <%= simple_form_for(:search, on: :collection, url: search_gyms_path, method: :get) do |f| %>
+    <div class="search-form">
+      <%= f.input :query, label: false %>
+      <%= f.button :submit, "Chercher", class: "search-button" %>
+      <% end %>
+    </div>
+
+    <%= link_to "Toutes nos salles", gyms_path, class: "banner-wagon-button" %>
   </div>
 </div>
 
