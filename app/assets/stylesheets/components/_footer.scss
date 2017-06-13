@@ -1,8 +1,5 @@
 
 #footer{
-  // bottom: 0;
-  // left: 0;
-  // right: 0;
   background: #f3f3f3;
     html {
       box-sizing: border-box;
@@ -69,11 +66,6 @@
 
   &:last-child {
     margin-right: 0;
-  }
-
-  &:hover,
-  &:focus {
-    //background: #f1f1f1;
   }
 
   &:focus {
