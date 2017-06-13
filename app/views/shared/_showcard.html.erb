@@ -1,0 +1,16 @@
+<div class="small-card">
+  <%= link_to gym_path(gym), style:"text-decoration:none;" do %>
+  <div class="imagecard" style="background-image: url('<%= cl_image_path gym.photo.url %>');">
+    <div class="text">
+      <p><%= gym.name %></p>
+    </div>
+      <div class="address"><%= gym.address %></div>
+    <div class="card-description">
+      <h3>
+          <%= gym.price %>
+          <i class="fa fa-eur" aria-hidden="true"></i>
+      </h3>
+    </div>
+  </div>
+  <% end %>
+</div>
