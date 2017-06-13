@@ -28,6 +28,18 @@ class GymsController < ApplicationController
     end
   end
 
+  def search
+    if params[:search] && params[:search][:query] && !Gym.search(params[:search][:query]).empty?
+      @gyms = Gym.search(params[:search][:query])
+    elsif Gym.search(params[:search][:query]).empty?
+      @gyms = Gym.all
+    end
+    @hash = Gmaps4rails.build_markers(@gyms) do |gym, marker|
+      marker.lat gym.latitude
+      marker.lng gym.longitude
+    end
+  end
+
   private
 
   def gym_params

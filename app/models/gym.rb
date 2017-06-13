@@ -2,6 +2,9 @@ class Gym < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   geocoded_by :address
   monetize :price_cents
+  include PgSearch
+  pg_search_scope :search, against: [ :name, :address, :equipments, :services ]
+
 
   after_validation :geocode, if: :address_changed?
 
