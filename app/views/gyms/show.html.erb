@@ -15,16 +15,14 @@
     <div class="entry">1 entrée:</div>
     <div class="price"> <%= humanized_money(@gym.price)%> € </div>
     <br>
-
   </div>
   <button id="mobilecta" type="button" class="btn-show btn-mobile-fixed hidden-lg" data-toggle="modal" data-target=".bs-example-modal-sm">Acheter une entrée</button>
 
   <div class="details hidden-xs hidden-sm hidden-md">
-    <h1><%= @gym.name %></h1>
-    <div class="details-title"> Description: <span class="description text-center"> <%= @gym.description %> </span></div>
-    <div class="details-title"> Services: <span class="services text-center"> <%= @gym.services %> </span></div>
-    <div class="details-title"> Equipements: <span class="equipments text-center"> <%= @gym.equipments %> </span></div>
 
+    <div class="details-title"> Description: <span class="description"> <%= @gym.description %> </span></div>
+    <div class="details-title"> Services: <span class="services"> <%= @gym.services %> </span></div>
+    <div class="details-title"> Equipements: <span class="equipments"> <%= @gym.equipments %> </span></div>
     <div class="details-title"> Photos:
       <% @photos.each do |photo| %>
         <%= link_to((image_path photo.url), class: "swipebox") do %>
@@ -32,13 +30,7 @@
           <% end %>
        <% end %>
     </div>
-
-
-    <div class="details-title"> Horaires: <span class="opening_hours text-center"> <%= @gym.opening_hours %> </span></div>
-    <div class="details-title" style="margin-bottom: 30px"><div class=details-title-address> Adresse: <span class="address"> <%= @gym.address %> </span></div>
-    <div id="map" style="width: 90%; height: 200px;"></div></div>
   </div>
-
   <div class="details-mobile hidden-lg">
     <h1><%= @gym.name %></h1>
     <div class="details-title"> Description: <span class="description text-center"> <%= @gym.description %> </span></div>
@@ -48,13 +40,20 @@
     <div class="details-title" style="margin-bottom: 30px"> Adresse: <span class="address"> <%= @gym.address %> </span> </div>
   </div>
   <div class="offre hidden-xs hidden-sm hidden-md">
-    <h2>Notre offre:</h2>
-    <br>
-    <div class="entry">1 entrée</div>
-    <div class="price"> <%= humanized_money(@gym.price)%> € </div>
-    <p>25% de réduction<br>par rapport au prix en salle</p>
-    <br>
-    <button type="button" class="btn-show" data-toggle="modal" data-target=".bs-example-modal-sm">Acheter une entrée</button>
+    <div class="detail-offre">
+      <h2>Notre offre:</h2>
+      <br>
+      <div class="entry">1 entrée</div>
+      <div class="price"> <%= humanized_money(@gym.price)%> € </div>
+      <p>25% de réduction<br>par rapport au prix en salle</p>
+      <br>
+      <button type="button" class="btn-show" data-toggle="modal" data-target=".bs-example-modal-sm">Acheter une entrée</button>
+    </div>
+    <div class="address-map">
+        <div class="address-map-elements"> <i class="fa fa-clock-o" aria-hidden="true" style="color: #FFDD00; font-size: 35px;"></i> <%= @gym.opening_hours %> </div>
+        <div class="address-map-elements"> <i class="fa fa-map-marker" aria-hidden="true" style="padding-bottom: 10px; color: #FFDD00; font-size: 35px;"></i> <%= @gym.address %> </div>
+        <div class="address-map-elements" id="map" style="width: 100%; height: 200px;"></div>
+    </div>
   </div>
 </div>
 
