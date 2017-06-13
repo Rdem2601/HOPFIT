@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170612125754) do
+ActiveRecord::Schema.define(version: 20170612113558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,14 @@ ActiveRecord::Schema.define(version: 20170612125754) do
     t.string "price_currency", default: "EUR", null: false
     t.string "sku"
     t.index ["user_id"], name: "index_gyms_on_user_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string "url"
+    t.bigint "gym_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gym_id"], name: "index_photos_on_gym_id"
   end
 
   create_table "users", force: :cascade do |t|
