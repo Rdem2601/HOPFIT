@@ -24,6 +24,11 @@
   margin-top: 20px;
   margin-bottom: 40px;
   position: relative;
+  text-decoration: none;
+}
+
+.card:hover{
+  text-decoration: none;
 }
 
 .text {
@@ -47,6 +52,11 @@
   font-size: 20px;
   text-shadow: 0 1px 5px rgba(0,0,0,0.3);
   margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.card h3:hover {
+  text-decoration: none;
 }
 
 .image-card {
@@ -56,6 +66,7 @@
   position: relative;
   border-radius:3px;
   height: 300px;
+  background-image: linear-gradient(-225deg, rgba(52, 18, 0, 0.6) 0%, rgba(110, 55, 0, 0.5) 50%);
 }
 
 .card-description a:hover {
@@ -92,6 +103,7 @@
   position: absolute;
   bottom: 10px;
   left: 10px;
+
 }
 .card-description h2 {
   font-size: 24px;

@@ -8,6 +8,7 @@ class GymsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@gyms) do |gym, marker|
       marker.lat gym.latitude
       marker.lng gym.longitude
+      # marker.infowindow render_to_string(partial: , locals: { gym:gym })
     end
   end
 
