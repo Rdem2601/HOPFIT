@@ -20,7 +20,7 @@
   <button id="mobilecta" type="button" class="btn-show btn-mobile-fixed hidden-lg" data-toggle="modal" data-target=".bs-example-modal-sm">Acheter une entrée</button>
 
   <div class="details hidden-xs hidden-sm hidden-md">
-    <h1>Les détails de la salle</h1>
+    <h1><%= @gym.name %></h1>
     <div class="details-title"> Description: <span class="description text-center"> <%= @gym.description %> </span></div>
     <div class="details-title"> Services: <span class="services text-center"> <%= @gym.services %> </span></div>
     <div class="details-title"> Equipements: <span class="equipments text-center"> <%= @gym.equipments %> </span></div>
@@ -31,7 +31,7 @@
   </div>
 
   <div class="details-mobile hidden-lg">
-    <h1>Les détails de la salle</h1>
+    <h1><%= @gym.name %></h1>
     <div class="details-title"> Description: <span class="description text-center"> <%= @gym.description %> </span></div>
     <div class="details-title"> Services: <span class="services text-center"> <%= @gym.services %> </span></div>
     <div class="details-title"> Equipements: <span class="equipments text-center"> <%= @gym.equipments %> </span></div>
@@ -66,7 +66,7 @@
           <%= submit_tag 'Procéder vers le paiement', class: 'btn-show' %>
         <% end %>
       <% else %>
-        <%= link_to "Connectez-vous pour acheter une entrée", user_session_path, class: 'btn-show' %>
+        <%= link_to "Connectez-vous", user_session_path, class: 'btn-show' %>
       <% end %>
     </div>
   </div>
