@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
     get :search, on: :collection
   end
-
+  resources :emails, only: [:new, :create]
   resources :users
 end
 
