@@ -1,7 +1,7 @@
 .banner {
   color: #FDECDA;
   text-align: center;
-  height: 70vh;
+  height: 80vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
@@ -16,7 +16,7 @@
   padding: 25px 40px;
   background-color: rgba(8, 76, 97, 0.3);
   border-radius: 6px;
-  max-width:95%;
+  max-width:90%;
   max-height: 95%;
 }
 
