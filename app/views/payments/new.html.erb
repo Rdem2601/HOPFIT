@@ -1,14 +1,14 @@
-<div class="payment-wrapper">
-  <div class="container login-container">
+<div class="payment-wrapper" style='background-image: linear-gradient(-225deg, rgba(52, 18, 0, 0.6) 0%, rgba(110, 55, 0, 0.4) 50%), url("http://res.cloudinary.com/da6umoo9p/image/upload/v1497424321/Fitness-payment_tiprcp.png")'>
+  <div class="container login-container payment-form">
     <div class="row">
       <div class="col-xs-12 col-md-4 col-md-offset-4">
-        <div class="form-inputs">
+        <div class="form-inputs text-center" style="margin-top: 1px; padding-bottom: 30px;">
 
           <h1>Achat d'une entrée <%= @booking.gym_sku %></h1>
           <%= form_tag gym_booking_payments_path(@gym, @booking) do %>
           <article>
             <label class="amount">
-              <span>Amount: <%= humanized_money_with_symbol(@booking.amount) %></span>
+              <span>Prix total: <%= humanized_money_with_symbol(@booking.amount) %></span>
             </label>
           </article>
 
@@ -16,7 +16,7 @@
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-name="<%= @gym.name %>"
           data-email="<%= current_user.email %>"
-          data-description="Teddy <%= @booking.gym_sku %>"
+          data-description="Hopfit <%= @booking.gym_sku %>"
           data-amount="<%= @booking.amount_cents %>"
           data-currency="<%= @booking.amount.currency %>"></script>
 
