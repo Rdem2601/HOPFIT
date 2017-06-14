@@ -3,7 +3,7 @@ class Gym < ApplicationRecord
   geocoded_by :address
   monetize :price_cents
   include PgSearch
-  pg_search_scope :search, against: [ :name, :address, :equipments, :services ]
+  pg_search_scope :search, against: [ :name, :address, :equipments, :services, :lessons ]
 
 
   after_validation :geocode, if: :address_changed?
