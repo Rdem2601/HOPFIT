@@ -14,42 +14,49 @@
          Cherchez votre salle ou votre cours parmi tous nos partenaires
        </h3>
      </div>
-     </div>
-     <div class="col-xs-12 col-sm-4">
-      <div class="home-card">
-        <span class="fa fa-credit-card-alt" aria-hidden="true" style="font-size: 25px;">
-        </span>
-        <h3>
-         Économisez jusqu'à 50% du prix de votre cours de sport
-        </h3>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="home-card">
-        <span class="fa fa-shield" aria-hidden="true" style="font-size: 25px;">
-        </span>
-        <h3>
-         Reservez votre activité en toute sécurité
-       </h3>
-     </div>
-    </div>
-  </div>
+   </div>
+   <div class="col-xs-12 col-sm-4">
+    <div class="home-card">
+      <span class="fa fa-credit-card-alt" aria-hidden="true" style="font-size: 25px;">
+      </span>
+      <h3>
+       Économisez jusqu'à 50% du prix de votre cours de sport
+     </h3>
+   </div>
+ </div>
+ <div class="col-xs-12 col-sm-4">
+  <div class="home-card">
+    <span class="fa fa-shield" aria-hidden="true" style="font-size: 25px;">
+    </span>
+    <h3>
+     Reservez votre activité en toute sécurité
+   </h3>
+ </div>
+</div>
+</div>
 </div>
 <div class="container">
   <div class="row">
    <div class="col-xs-12 hidden-md hidden-lg btn-show btn-red">
     <%= link_to "Trouvez votre salle", gyms_path %>
-   </div>
- </div>
+  </div>
 </div>
-
-  <div class="newsletter">
-    <div><h2 class="fancy-subtitle text-center">Abonnez-vous à notre <span style="color: #FFDD00; text-shadow: 1px 1px 1px rgba(0,0,0,0.5); font-weight: bolder; font-family: 'Alegreya Sans', sans-serif;" > newsletter</span></h2>
-      <%= simple_form_for(:emails, on: :collection, url: emails_path, method: :post) do |f| %>
-      <div class="search-form">
-        <%= f.input :email, label: false %>
-        <%= f.button :submit, "S'inscrire", class: "search-button" %>
-      <% end %>
+</div>
+<div class="container">
+  <div class="row">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="newsletter">
+        <h2 class="fancy-subtitle text-center">Abonnez-vous à notre
+          <span style="color: #FFDD00; text-shadow: 1px 1px 1px rgba(0,0,0,0.5); font-weight: bolder; font-family: 'Alegreya Sans', sans-serif;"  > newsletter
+          </span>
+        </h2>
+        <%= simple_form_for(:emails, on: :collection, url: emails_path, method: :post) do |f| %>
+        <div class="search-form">
+          <%= f.input :email, label: false %>
+          <%= f.button :submit, "S'inscrire", class: "search-button" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
+</div>

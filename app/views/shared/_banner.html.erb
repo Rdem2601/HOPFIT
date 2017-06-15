@@ -7,11 +7,11 @@
       <%= simple_form_for(:search, on: :collection, url: search_gyms_path, method: :get) do |f| %>
     <div class="search-form">
       <%= f.input :query, label: false %>
-      <%= f.button :submit, "Chercher", class: "search-button" %>
+      <%= f.button :submit, "Chercher", class: "search-button btn-skyblue" %>
       <% end %>
     </div>
 
-    <%= link_to "Toutes nos salles", gyms_path, class: "banner-wagon-button" %>
+    <%= link_to "Toutes nos salles", gyms_path, class: "banner-wagon-button btn-skyblue" %>
   </div>
 </div>
 
