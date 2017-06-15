@@ -9,6 +9,11 @@ class GymsController < ApplicationController
       marker.lat gym.latitude
       marker.lng gym.longitude
       marker.infowindow render_to_string(partial: "/shared/showcard", locals: { gym:gym })
+      marker.picture({
+                            :url => ActionController::Base.helpers.asset_path("gymarker.png"),
+                            :width => 39,
+                            :height => 64
+                            })
     end
   end
 
@@ -17,6 +22,11 @@ class GymsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@gym) do |gym, marker|
       marker.lat gym.latitude
       marker.lng gym.longitude
+      marker.picture({
+                            :url => ActionController::Base.helpers.asset_path("gymarker.png"),
+                            :width => 39,
+                            :height => 64
+                            })
     end
   end
 
@@ -38,6 +48,11 @@ class GymsController < ApplicationController
       marker.lat gym.latitude
       marker.lng gym.longitude
       marker.infowindow render_to_string(partial: "/shared/showcard", locals: { gym:gym })
+      marker.picture({
+                            :url => ActionController::Base.helpers.asset_path("gymarker.png"),
+                            :width => 39,
+                            :height => 64
+                            })
     end
   end
 
