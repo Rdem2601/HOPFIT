@@ -5,6 +5,10 @@
   font-family: 'Alegreya Sans', sans-serif !important;
 }
 
+.btn-blue:hover{
+  color: white !important;
+}
+
 .btn-red{
   background-color: #FF4F4F !important;
   color: white !important;
@@ -20,9 +24,24 @@
   }
 }
 
-.btn-blue:hover{
+.btn-skyblue{
+  background-color: #21A0A0
+   !important;
   color: white !important;
+  font-family: 'Alegreya Sans', sans-serif !important;
+  font-size: 20px !important;
+  text-decoration:none;
+  a {
+    color:white;
+    &:hover {
+      background-color: #77acba !important;
+      color: white;
+      text-decoration: none;
+    }
+  }
 }
+
+
 
 .banner-wagon-button {
   margin: 5px 10px;
